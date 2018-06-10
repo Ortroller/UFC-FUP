@@ -1,6 +1,6 @@
 #include "func.h"
 
-void apagar(int *qtdp, int *qtdq){ // Muda o status "ativo"
+void apagar(int *qtdp, int *qtdq, folk *pessoas, room *quartos){ // Muda o status "ativo"
 
 	int op, num, i, ii;
 	char cpf[12];
@@ -16,29 +16,32 @@ void apagar(int *qtdp, int *qtdq){ // Muda o status "ativo"
 				if(strcmp(cpf,pessoas[i].cpf) == 0 && qtdp > 0){
 					pessoas[i].ativo = 0 ;
 					if(pessoas[i].num > 0){
-						for(ii=0;ii<qtdq;ii++){
+						for(ii=0;ii<*qtdq;ii++){
 							if(pessoas[i].num == quartos[ii].numero){
 								quartos[ii].disponibilidade = 0;
 								quartos[ii].cpf[0] = '\n';
 							}
 						}	
 					}
-					i = qtdp; 
+					i = *qtdp; 
 					return; // termina a funcao assim que encontrar
 				}
 			}
 			printf("Nao encontrado\n");
 			return;
 			break;
-		case 2:
+		case 2: // apaga quarto
 			printf("Digite o numero do quarto: ");
-			scanf("%i", num);
+			scanf("%i", &num);
 			for(i=0;i<*qtdq;i++){ // Procura o quarto
 				if(num == quartos[i].numero){
 					quartos[i].atv = 0;
-					i = qtdq;
+					i = *qtdq;
+					return ;
 				}
 			}
+			printf("Inexistente\n");
+			return;
 			break;
 			default:
 				printf("Invalido");

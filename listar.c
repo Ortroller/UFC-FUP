@@ -1,6 +1,6 @@
 #include "func.h"
 
-void listar(int *qtdq, int *qtdp){ // faz uma lista do  que quiser
+void listar(int *qtdq, int *qtdp, folk *pessoas, room *quartos){ // faz uma lista do  que quiser
 	int i, op;
 	
 	printf("Listar: 1 - Pessoas | 2 - Quartos \n");
@@ -17,11 +17,13 @@ void listar(int *qtdq, int *qtdp){ // faz uma lista do  que quiser
 			break; // Fim do caso 1(pessoas)
 		case 2:
 			for(i=0; i< *qtdq; i++){
-				printf("Numero: %i | ", quartos[i].numero);
-				if(quartos[i].disponibilidade != 0 && quartos[i].atv == 1){
-				printf("Alugado\n");
-				}else{
-				printf("Disponivel\n");
+				if(quartos[i].atv == 1){
+					printf("Numero: %i | ", quartos[i].numero);
+					if(quartos[i].disponibilidade != 0){
+						printf("Alugado\n");
+					}else{
+						printf("Disponivel\n");
+					}
 				}
 			}
 			break;

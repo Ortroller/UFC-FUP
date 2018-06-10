@@ -16,10 +16,4 @@ typedef struct{
 	
 }room;
 
-folk pessoas[100]; // Vetor da struct de pessoas 
-room quartos [50]; // Vetor da struct de quartos
 
-/*
-extern int indP;
-extern int indQ;
-*/

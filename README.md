@@ -1,2 +1,2 @@
 # UFC-FUP
-Trabalho final de FUP EC1 
+Trabalho final de Fundamentos de Programação
